@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Gandit app
+gandit_app/.dart_tool/
+gandit_app/.idea/
+gandit_app/.metadata
+gandit_app/.packages
