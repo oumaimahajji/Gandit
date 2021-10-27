@@ -13,3 +13,8 @@
 - [ ] Définir l’ordre des doigts et des capteurs 
 - [ ] Faire le lien entre le output X et le capteur Y 
 - [ ] Front-end 
+
+
+## Flutter and Android Studio :
+
+- On utilise la version **Oreo 8.0** pour les tests/ l'émulation du device 
