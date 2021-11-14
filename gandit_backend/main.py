@@ -19,27 +19,36 @@ def main():
 
     value_P1 = int(values[1].strip())
     value_F2 = int(values[3].strip())
+
     gesteF2 = 'IDLE'
     gesteP1= 'IDLE'
     geste = 'aaaaa'
 
+    # pour f2
     if 600 >= value_F2 and value_F2 > 400:
         gesteF2 = 'IDLE'
     if 400 <= value_F2 and value_F2 >= 300:
         gesteF2 = 'BENT'
     if 299 <= value_F2 and value_F2 <= 0:
         gesteF2 = 'TOOBENT'
-    # pour p
+    # pour p1
     if value_P1 == 0 :
         gesteP1 = 'IDLE'
     elif 700 < value_P1 :
         gesteP1 = 'PRESSED'
     elif value_P1 < 300:
         gesteP1 = 'LITTLEPRESSED'
-    if gesteP1 == 'PRESSED' and gesteF2 == 'BENT':
+    
+    # play/stop
+    if gesteP1 == 'PRESSED' and gesteF2 == 'IDLE':
         geste = 'STOP_MUSIC'
-    elif gesteP1 == 'IDLE' and gesteF2 == 'BENT':
+    elif gesteP1 == 'PRESSED' and gesteF2 == 'TOOBENT':
         geste = 'PLAY_MUSIC'
+    # up/down
+    if gesteP1 == 'IDLE' and gesteF2 == 'IDLE':
+        geste = 'UP_VOLUME'
+    elif gesteP1 == 'IDLE' and gesteF2 == 'TOOBENT':
+        geste = 'DOWN_VOLUME'
     
     #print(geste)
     return geste
@@ -53,3 +62,4 @@ while True:
     print(value) # printing the value
      # Establish connection with client.
     c.send(str.encode(value))
+
